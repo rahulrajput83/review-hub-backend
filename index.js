@@ -10,17 +10,17 @@ app.use(express.json({}))
 
 const DEFAULT_PORT = 2850;
 
-/* Listen to server */
-const server = app.listen(process.env.PORT || DEFAULT_PORT, () => {
-    const port = server.address().port;
-    console.log(`Server running at ${port}`)
-})
 
 /* Mongooose Connect */
 mongoose.set('strictQuery', false)
 mongoose.connect(process.env.connection)
     .then(() => {
         console.log('Connection')
+        /* Listen to server */
+        const server = app.listen(process.env.PORT || DEFAULT_PORT, () => {
+            const port = server.address().port;
+            console.log(`Server running at ${port}`)
+        })
     })
     .catch(() => {
         console.log('Failed')
