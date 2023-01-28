@@ -4,7 +4,7 @@ const RegisterModel = require('../Schema/Register');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
 
-router.get('/login', (req, res) => {
+router.post('/login', (req, res) => {
     RegisterModel.findOne({email: req.body.email})
     .then((value) => {
         if(value) {
