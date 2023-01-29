@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 /* Schema for User Data */
 const RegisterSchema = new mongoose.Schema({
+    userName: String,
     email: String,
     password: String,
 })
