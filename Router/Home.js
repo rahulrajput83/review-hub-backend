@@ -42,7 +42,7 @@ router.post('/login', (req, res) => {
                 /* on new data created, encode with jwt. */
                 const token = jwt.sign({user: value}, process.env.key);
                 /* Send response with jwt. */
-                res.status(404).json({message: 'success', accessToken: token});
+                res.status(200).json({message: 'success', accessToken: token});
             })
             /* Some error */
             .catch(() => {
