@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
             }
             else{
                 /* If matched, encode user data with jwt. */
-                const token = jwt.sign({user: value}, process.env.key);
+                const token = jwt.sign({user: value}, process.env.key, { expiresIn: '24h' });
                 /* Send response with jwt token. */
                 res.status(200).json({message: 'success', accessToken: token});
             }
@@ -40,7 +40,7 @@ router.post('/login', (req, res) => {
             newRegister.save()
             .then((value) => {
                 /* on new data created, encode with jwt. */
-                const token = jwt.sign({user: value}, process.env.key);
+                const token = jwt.sign({user: value}, process.env.key, { expiresIn: '24h' });
                 /* Send response with jwt. */
                 res.status(200).json({message: 'success', accessToken: token});
             })
