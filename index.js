@@ -1,8 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors')
-const Home = require('./Router/Home')
+const cors = require('cors');
+const Home = require('./Router/Home');
+const GetMovies = require('./Router/GetMovies')
 
 /* Initializes express app */
 const app = express();
@@ -31,3 +32,4 @@ app.use(cors())
 
 /* Routes */
 app.use('/', Home)
+app.use('/', GetMovies)

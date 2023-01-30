@@ -53,7 +53,7 @@ router.post('/login', (req, res) => {
     })
     /* Some error */
     .catch(() => {
-        res.status().json({message: 'Something went wrong...'})
+        res.status(503).json({message: 'Something went wrong...'})
     })
 })
 
