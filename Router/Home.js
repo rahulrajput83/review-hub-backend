@@ -48,7 +48,6 @@ router.post('/login', (req, res) => {
             .catch(() => {
                 res.status(503).send({message: 'Something went wrong...'})
             })
-            
         }
     })
     /* Some error */
