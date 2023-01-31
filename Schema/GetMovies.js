@@ -6,6 +6,8 @@ const MovieSchema = new mongoose.Schema({
     title: String,
     year: String,
     desc: String,
+    rating: Number,
+    rated: Array
 })
 const MoviesModel = mongoose.model('Movie', MovieSchema)
 
