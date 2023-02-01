@@ -3,8 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Home = require('./Router/Home');
-const GetMovies = require('./Router/GetMovies')
-const UploadMovies = require('./Router/UploadMovie')
+const GetMovies = require('./Router/GetMovies');
+const UploadMovies = require('./Router/UploadMovie');
+const RateMovie = require('./Router/Rate')
+
 
 /* Initializes express app */
 const app = express();
@@ -35,3 +37,4 @@ app.use(cors())
 app.use('/', Home)
 app.use('/', GetMovies)
 app.use('/', UploadMovies)
+app.use('/', RateMovie)
