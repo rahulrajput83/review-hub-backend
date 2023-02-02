@@ -2,6 +2,7 @@
 const express = require('express');
 const MoviesModel = require('../Schema/GetMovies');
 const router = express.Router();
+const jwt = require('jsonwebtoken')
 
 /* Get All Movies Details Route */
 router.get('/all-movies', (req, res) => {
