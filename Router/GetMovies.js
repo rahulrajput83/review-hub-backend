@@ -22,10 +22,20 @@ router.get('/all-movies', (req, res) => {
 
 /* Get Single Movie Detail Route */
 router.get('/movie/:id', (req, res) => {
+    let userId;
+    const token = req.headers['access-token'];
+    if(token) {
+    }
+    jwt.verify(token, process.env.key, (err, decoded) => {
+        if(!err) {
+            userId = decoded.user._id;
+        }
+        /* console.log(decoded.user._id) */
+    })
     MoviesModel.findOne({_id: req.params.id})
     .then((value) => {
         if(value) {
-            res.status(200).json({message: 'Success', data: value})
+            res.status(200).json({message: 'Success', data: value, userId: userId})
         }
         else {
             res.status(200).json({message: 'No Movie Found.'})
