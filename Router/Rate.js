@@ -5,7 +5,7 @@ const verify = require('../Middleware/AuthJWT');
 
 /* Rate Movie Route */
 router.put('/rate', verify, (req, res) => {
-    MoviesModel.updateOne({_id: req.body.movieId}, {$set: {"rating": req.body.rating}, $push: {"rated": req.body.user}})
+    MoviesModel.updateOne({_id: req.body.movieId}, {$set: {"rating": req.body.rating}, $push: {"rated": {user: req.body.user, rating: req.body.rated}}})
     .then(() => {
         res.status(200).json({message: 'Success'})
     })
