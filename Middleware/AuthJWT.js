@@ -10,6 +10,7 @@ const verify = (req, res, next) => {
             return res.status(401).send({ message: "Unauthorized!" });
         }
         /* console.log(decoded.user._id) */
+        req.user = decoded.user
         next();
     })
 }
