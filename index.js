@@ -6,6 +6,7 @@ const Home = require('./Router/Home');
 const GetMovies = require('./Router/GetMovies');
 const UploadMovies = require('./Router/UploadMovie');
 const RateMovie = require('./Router/Rate')
+const CloudinaryUpload = require('./Router/CloudinaryUpload')
 
 
 /* Initializes express app */
@@ -38,3 +39,4 @@ app.use('/', Home)
 app.use('/', GetMovies)
 app.use('/', UploadMovies)
 app.use('/', RateMovie)
+app.use('/', CloudinaryUpload)
